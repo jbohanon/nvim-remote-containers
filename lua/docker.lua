@@ -19,7 +19,7 @@ end
 
 local function parseWorkspaceFolder(config)
 	local workspace
-	if not config or config.workspaceMount:find("localWorkspaceFolder") then
+	if not config or config.workspaceMount or config.workspaceMount:find("localWorkspaceFolder") then
 		workspace = api.nvim_exec("pwd", true)
 	else
 		workspace = config.workspaceMount
